@@ -1,0 +1,28 @@
+- Requête GET ALL :
+  + GET: https://app-cyberchamis.herokuapp.com/api/{CLASSES}/
+
+- Requête GET par ID:
+  + GET: https://app-cyberchamis.herokuapp.com/api/{CLASSES}/{CLASSE_ID}
+
+- Requête POST:
+  + POST: https://app-cyberchamis.herokuapp.com/api/{CLASSES}/
+  body: Un objet de type CLASSE
+
+- Requête PUT:
+  + PUT: https://app-cyberchamis.herokuapp.com/api/{CLASSES}/{CLASSE_ID}
+  body: Un objet de type CLASSE
+
+- Requête DELETE par ID:
+  + DELETE: https://app-cyberchamis.herokuapp.com/api/{CLASSES}/{CLASSE_ID}
+
+Remplacer {CLASSES} par arrets, chamis, defis, visites,.....
+Remplacer {CLASSE_ID} par l'ID de arret, chami, defi, ...
+
+***Requête spéciaux pour:
+Chami:
+- Requête GET Chami par Email:
+  + GET: https://app-cyberchamis.herokuapp.com/api/chamis//email/{chamiEMAIL}
+
+Defi:
+- Requête GET liste de Defis d'un Chami:
+  + GET: https://app-cyberchamis.herokuapp.com/api/defis/chami/{login}
