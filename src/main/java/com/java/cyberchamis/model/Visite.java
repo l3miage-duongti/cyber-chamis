@@ -3,37 +3,32 @@ package com.java.cyberchamis.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "visites")
 public class Visite {
-    
-    //attributs
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
     private int id;
 
-    @Column(name = "dateDeVisite")
+    @Column(name = "date")
     private String dateDeVisite;
 
-    @Column(name = "statut")
+    @Column
     private String statut;
 
-    @Column(name = "temps")
+    @Column
     private Float temps;
 
     //le point gagne
-    @Column(name = "score")
+    @Column
     private int score;
 
-    @Column(name = "commentaires")
+    @Column
     private String commentaires;
 
     @ManyToOne
-    @JoinColumn(name = "defi")
     private Defi defi;
 
     @ManyToOne
-    @JoinColumn(name = "chami")
     private Chami chami;
 
     //getters et setters
@@ -100,6 +95,4 @@ public class Visite {
     public void setChami(Chami chami) {
         this.chami = chami;
     }
-
-    
 }

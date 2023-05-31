@@ -8,25 +8,20 @@ import com.fasterxml.jackson.annotation.*;
 import java.util.List;
 
 @Entity
-//@Table(name = "chamis")
 public class Chami {
 
     @Id
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "username")
     private String username;
+
+    @Column(unique = true)
+    private String email;
 
     @Column(name = "age")
     private int age;
 
     @Column(name = "description")
     private String description;
-
-    @OneToMany(mappedBy = "auteur", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Defi> defis;
     
     //setters et getters
     public String getUsername() {
@@ -59,14 +54,6 @@ public class Chami {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<Defi> getDefis() {
-        return defis;
-    }
-
-    public void setDefis(List<Defi> defis) {
-        this.defis = defis;
     }
 
     

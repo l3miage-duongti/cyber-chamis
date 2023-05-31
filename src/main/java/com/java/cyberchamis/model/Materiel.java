@@ -3,7 +3,6 @@ package com.java.cyberchamis.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "materiels")
 public class Materiel {
 
     @Id

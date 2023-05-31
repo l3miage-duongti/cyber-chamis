@@ -2,51 +2,37 @@ package com.java.cyberchamis.model;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.*;
-
-
 
 @Entity
-@Table(name="questions")
 public class Question {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
     private int id;
 
-    @Column(name = "question")
+    @Column
     private String question;
 
-    @Column(name = "reponseCorrecte")
+    @Column(name = "reponse_correcte")
     private String reponseCorrecte;
 
-    @Column(name = "point")
-    private int point;  
+    @Column
+    private int point;
 
-    @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private Indice indice;
+    @Column
+    private String indice;
 
-    @OneToOne
-    @JoinColumn(name = "etape")
-    @JsonBackReference
-    private Etape etape;
-    
-    //constructor
-    
-    public Question(String question, String reponseCorrecte, int point, Indice indice, Etape etape) {
+    @Column(name = "cout_indice")
+    private int coutIndice;
+
+    public Question(String question, String reponseCorrecte, int point, String indice, int coutIndice) {
         this.question = question;
         this.reponseCorrecte = reponseCorrecte;
         this.point = point;
         this.indice = indice;
-        this.etape = etape;
+        this.coutIndice = coutIndice;
     }
 
-    public Question() {
-    }
-
-    //setters and getters
     public int getId() {
         return id;
     }
@@ -79,22 +65,13 @@ public class Question {
         this.point = point;
     }
 
-    public Indice getIndice() {
-        return indice;
-    }
+    public String getIndice() { return indice; }
 
-    public void setIndice(Indice indice) {
-        this.indice = indice;
-        indice.setQuestion(this);
-    }
+    public void setIndice(String indice) { this.indice = indice; }
 
-    public Etape getEtape() {
-        return etape;
-    }
+    public int getCoutIndice() { return coutIndice; }
 
-    public void setEtape(Etape etape) {
-        this.etape = etape;
+    public void setCoutIndice(int coutIndice) {
+        this.coutIndice = coutIndice;
     }
-
-    
 }

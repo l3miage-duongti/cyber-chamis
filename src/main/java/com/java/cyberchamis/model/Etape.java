@@ -2,38 +2,30 @@ package com.java.cyberchamis.model;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.*;
+import java.util.Set;
 
 
 @Entity
-@Table(name="etapes")
 public class Etape {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name="id")
     private int id;
 
-    @Column(name="instruction")
+    @Column
     private String instruction;
 
-    @OneToOne(mappedBy = "etape", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private Question question;
-
     @ManyToOne
-    @JoinColumn(name="defi")
-    @JsonBackReference
-    private Defi defi;
+    private Arret arret;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Question> questions;
 
     //constructors
-    public Etape(String instruction, Question question, Defi defi) {
+    public Etape(String instruction, Arret arret, Set<Question> questions) {
         this.instruction = instruction;
-        this.question = question;
-        this.defi = defi;
-    }
-
-    public Etape() {
+        this.arret = arret;
+        this.questions = questions;
     }
 
     //setters and getters
@@ -53,23 +45,12 @@ public class Etape {
         this.instruction = instruction;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
+    public Arret getArret() { return arret; }
 
-    public void setQuestion(Question q) {
-        this.question = q;
-        q.setEtape(this);
-    }
+    public void setArret(Arret arret) { this.arret = arret; }
 
-    public Defi getDefi() {
-        return defi;
-    }
+    public Set<Question> getQuestions() { return questions; }
 
-    public void setDefi(Defi defi) {
-        this.defi = defi;
-    }
-
-    
+    public void setQuestions(Set<Question> questions) { this.questions = questions; }
 }
 
