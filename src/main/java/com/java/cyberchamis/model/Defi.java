@@ -8,7 +8,7 @@ import java.util.List;
 public class Defi {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
@@ -21,6 +21,10 @@ public class Defi {
     @JoinColumn(name = "auteur")
     private Chami auteur;
 
+    @ManyToOne
+    @JoinColumn(name = "depart")
+    private Arret depart;
+
     @Column
     private String description;
 
@@ -31,14 +35,17 @@ public class Defi {
     private String epilogue;
 
     //constructors
-    public Defi(String titre, String dateDeCreation, Chami auteur, String description, List<Etape> etapes, String epilogue) {
+    public Defi(String titre, String dateDeCreation, Chami auteur,Arret depart, String description, List<Etape> etapes, String epilogue) {
         this.titre = titre;
         this.dateDeCreation = dateDeCreation;
+        this.depart = depart;
         this.description = description;
         this.auteur = auteur;
         this.etapes = etapes;
         this.epilogue = epilogue;
     }
+
+    public Defi(){}
 
     //methodes
     public void addEtape (Etape e){
@@ -79,6 +86,11 @@ public class Defi {
     }
 
     public void setAuteur(Chami auteur) { this.auteur = auteur; }
+
+    public Arret getDepart(){ return this.depart; }
+
+    public void setDepart(Arret depart){ this.depart = depart; }
+
     public String getDescription() {
         return description;
     }
