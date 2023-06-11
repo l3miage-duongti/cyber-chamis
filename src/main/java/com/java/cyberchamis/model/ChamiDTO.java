@@ -5,12 +5,16 @@ public class ChamiDTO {
     private String email;
     private String username;
     private int age;
+    private String description;
 
-    public ChamiDTO(String email, String username, int age){
+    public ChamiDTO(String email, String username, int age, String description){
         this.email = email;
         this.username = username;
         this.age = age;
+        this.description = description;
     }
+
+    public ChamiDTO(){};
 
     public String getEmail(){ return this.email; }
 
@@ -27,4 +31,6 @@ public class ChamiDTO {
     public void setAge(int age) {
         this.age = age;
     }
+    public String getDescription(){ return this.description; }
+    public void setDescription(String description){ this.description = description; }
 }

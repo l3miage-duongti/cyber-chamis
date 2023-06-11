@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Question {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
@@ -32,6 +32,8 @@ public class Question {
         this.indice = indice;
         this.coutIndice = coutIndice;
     }
+
+    public Question(){}
 
     public int getId() {
         return id;

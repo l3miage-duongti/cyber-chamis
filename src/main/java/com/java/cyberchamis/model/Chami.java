@@ -22,7 +22,16 @@ public class Chami {
 
     @Column(name = "description")
     private String description;
-    
+
+    public Chami (String username, String email, int age, String description){
+        this.username = username;
+        this.email = email;
+        this.age = age;
+        this.description = description;
+    }
+
+    public Chami(){}
+
     //setters et getters
     public String getUsername() {
         return username;

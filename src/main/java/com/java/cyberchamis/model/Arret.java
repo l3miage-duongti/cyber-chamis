@@ -15,6 +15,14 @@ public class Arret {
     @Column(name = "lienStreetMap", unique = true)
     private String lienStreetMap;
 
+    public Arret(String codeTAG, String arret, String lienStreetMap){
+        this.codeTAG = codeTAG;
+        this.arret = arret;
+        this.lienStreetMap = lienStreetMap;
+    }
+
+    public Arret(){}
+
     public String getCodeTAG() {
         return codeTAG;
     }

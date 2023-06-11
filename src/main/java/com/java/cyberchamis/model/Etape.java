@@ -9,7 +9,7 @@ import java.util.Set;
 public class Etape {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
@@ -27,6 +27,8 @@ public class Etape {
         this.arret = arret;
         this.questions = questions;
     }
+
+    public Etape(){}
 
     //setters and getters
     public int getId() {

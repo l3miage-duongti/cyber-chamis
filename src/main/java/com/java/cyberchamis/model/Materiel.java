@@ -20,6 +20,14 @@ public class Materiel {
     @JoinColumn(name = "etape")
     private Etape etape;
 
+    public Materiel(String description, String lien, Etape etape){
+        this.description = description;
+        this.lien = lien;
+        this.etape = etape;
+    }
+
+    public Materiel(){}
+
     //setters et getters
     public int getId() {
         return id;

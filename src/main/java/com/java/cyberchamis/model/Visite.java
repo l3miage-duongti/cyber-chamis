@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Visite {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "date")
@@ -29,7 +29,20 @@ public class Visite {
     private Defi defi;
 
     @ManyToOne
+    @JoinColumn(name = "chami")
     private Chami chami;
+
+    public Visite(String dateDeVisite, String statut, Float temps, int score, String commentaires, Defi defi, Chami chami){
+        this.dateDeVisite = dateDeVisite;
+        this.statut = statut;
+        this.temps = temps;
+        this.score = score;
+        this.commentaires = commentaires;
+        this.defi = defi;
+        this.chami = chami;
+    }
+
+    public Visite(){}
 
     //getters et setters
     public int getId() {
